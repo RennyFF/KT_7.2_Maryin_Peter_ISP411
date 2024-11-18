@@ -1,0 +1,52 @@
+﻿<Page x:Class="MasterFloorApp.Pages.EditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MasterFloorApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900" Background="White"
+      Title="EditPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Наименование:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Тип:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Рейтинг:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Адрес:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+            
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="ФИО директора:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="Телефон:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="Email:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="NameTB"></TextBox>
+            <ComboBox Grid.Row="1" Grid.Column="1" x:Name="TypeCB"></ComboBox>
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="RatingTB"></TextBox>
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="AdressTB"></TextBox>
+            
+            <TextBox Grid.Row="0" Grid.Column="3" x:Name="FIOTB"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="3" x:Name="PhoneTB"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="3" x:Name="EmailTB"></TextBox>
+        </Grid>
+        
+        <Button Grid.Row="1" HorizontalAlignment="Left" Content="Назад" Margin="10 0 0 0" x:Name="BackButton" Click="BackButton_Click"></Button>
+        <Button Grid.Row="1" HorizontalAlignment="Right" Content="Сохранить" Margin="0 0 10 0" x:Name="SaveButton" Click="SaveButton_Click"></Button>
+    </Grid>
+</Page>
