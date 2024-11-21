@@ -28,22 +28,28 @@ namespace MasterFloorApp.Pages
 
         private void Init()
         {
-            PartnerListView.ItemsSource = Model.MasterFloorDBEntities.GetContext().Partners.ToList();
+            var OriginPartners = Model.MasterFloorDBEntities.GetContext().Partners.ToList();
+            List<Utils.PartnerWithProcent> PartnersItems = new List<Utils.PartnerWithProcent>();
+            foreach (var item in OriginPartners)
+            {
+                PartnersItems.Add(new Utils.PartnerWithProcent(item));
+            }
+            PartnerListView.ItemsSource = PartnersItems;
         }
 
         private void EditPartner_Click(object sender, RoutedEventArgs e)
         {
-
+            Utils.Navigation.CurrentFrame.Navigate(new Pages.EditPage((sender as Button).DataContext as Utils.PartnerWithProcent));
         }
 
         private void HistoryPartner_Click(object sender, RoutedEventArgs e)
         {
-
+            Utils.Navigation.CurrentFrame.Navigate(new Pages.HistoryPage((sender as Button).DataContext as Utils.PartnerWithProcent));
         }
 
         private void AddPartner_Click(object sender, RoutedEventArgs e)
         {
-
+            Utils.Navigation.CurrentFrame.Navigate(new Pages.EditPage());
         }
     }
 }

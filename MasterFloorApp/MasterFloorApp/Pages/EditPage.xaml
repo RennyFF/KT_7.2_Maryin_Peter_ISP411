@@ -14,18 +14,18 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Наименование:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Тип:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
@@ -37,7 +37,7 @@
             <TextBlock Grid.Row="2" Grid.Column="2" Text="Email:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
 
             <TextBox Grid.Row="0" Grid.Column="1" x:Name="NameTB"></TextBox>
-            <ComboBox Grid.Row="1" Grid.Column="1" x:Name="TypeCB"></ComboBox>
+            <ComboBox Grid.Row="1" Grid.Column="1" x:Name="TypeCB" DisplayMemberPath="Name"></ComboBox>
             <TextBox Grid.Row="2" Grid.Column="1" x:Name="RatingTB"></TextBox>
             <TextBox Grid.Row="3" Grid.Column="1" x:Name="AdressTB"></TextBox>
             

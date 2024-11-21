@@ -23,3 +23,32 @@ C:\Users\comcuru\Desktop\as\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorA
 C:\Users\comcuru\Desktop\as\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.csproj.CopyComplete
 C:\Users\comcuru\Desktop\as\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.exe
 C:\Users\comcuru\Desktop\as\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.pdb
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\MasterFloorApp.exe.config
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\MasterFloorApp.exe
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\MasterFloorApp.pdb
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\EntityFramework.dll
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\EntityFramework.xml
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.csproj.AssemblyReference.cache
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MainWindow.g.cs
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\Pages\EditPage.g.cs
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\Pages\PartnerList.g.cs
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\App.g.cs
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp_Content.g.cs
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp_MarkupCompile.cache
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp_MarkupCompile.lref
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\App.baml
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MainWindow.baml
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\Pages\EditPage.baml
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\Pages\PartnerList.baml
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.g.resources
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.Properties.Resources.resources
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.csproj.GenerateResource.cache
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.csproj.CoreCompileInputs.cache
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.csproj.CopyComplete
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.exe
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\MasterFloorApp.pdb
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\Pages\HistoryPage.g.cs
+C:\Users\comcuru\Desktop\Новая папка\KT_7.2_Maryin_Peter_ISP411\MasterFloorApp\MasterFloorApp\obj\Debug\Pages\HistoryPage.baml

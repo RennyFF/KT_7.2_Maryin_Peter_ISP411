@@ -41,7 +41,7 @@
                                 </TextBlock>
                             </StackPanel>
                             <TextBlock Grid.Column="1" VerticalAlignment="Center">
-                                <Run Text="0"></Run>
+                                <Run Text="{Binding SaleProcent}"></Run>
                                 <Run Text="%"></Run>
                             </TextBlock>
                             <StackPanel Grid.Column="2" VerticalAlignment="Center">

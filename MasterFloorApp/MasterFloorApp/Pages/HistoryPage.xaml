@@ -1,0 +1,45 @@
+﻿<Page x:Class="MasterFloorApp.Pages.HistoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MasterFloorApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900" Background="White"
+      Title="HistoryPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="HistoryListView" HorizontalContentAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                        <Grid Margin="10" Width="600" Height="100">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock FontWeight="Medium" TextWrapping="Wrap">
+                                    <Run Text="Наименование продукции:"></Run>
+                                    <Run Text="{Binding Products.Name}"></Run>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Количество:"></Run>
+                                    <Run Text="{Binding Countity}"></Run>
+                                    <Run Text="шт."></Run>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="Дата продажи:"></Run>
+                                    <Run Text="{Binding RealisationDate, StringFormat=d}"></Run>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Row="1" HorizontalAlignment="Left" Content="Назад" Margin="10 0 0 0" x:Name="BackButton" Click="BackButton_Click"></Button>
+    </Grid>
+</Page>

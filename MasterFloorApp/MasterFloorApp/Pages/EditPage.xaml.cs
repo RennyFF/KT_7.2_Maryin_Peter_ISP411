@@ -22,25 +22,23 @@ namespace MasterFloorApp.Pages
     {
         private bool IsAdding { get; set; } = true;
         private Model.Partners CurrentPartner { get; set; }
-        public EditPage(Model.Partners Partner)
+        public EditPage(Utils.PartnerWithProcent Partner)
         {
             InitializeComponent();
-            Init(Partner);
+            Init(Model.MasterFloorDBEntities.GetContext().Partners.Where(i => i.Id == Partner.Id).First(), false);
+        }
+        public EditPage()
+        {
+            InitializeComponent();
+            Init(new Model.Partners(), true);
         }
 
-        private void Init(Model.Partners Partner)
+        private void Init(Model.Partners Partner, bool isAdding)
         {
             try
             {
-                if (Partner == null)
-                {
-                    CurrentPartner = new Model.Partners();
-                }
-                else
-                {
-                    CurrentPartner = Partner;
-                    IsAdding = false;
-                }
+                IsAdding = isAdding;
+                CurrentPartner = Partner;
 
                 var Types = Model.MasterFloorDBEntities.GetContext().PartnerType.ToList();
                 Types.Insert(0, new Model.PartnerType() { Name = "Выберите партнера" });
@@ -59,7 +57,7 @@ namespace MasterFloorApp.Pages
                         $"{Adress.Streets.Name}, " +
                         $"{Adress.HouseNumber}";
                     FIOTB.Text = $"{CurrentPartner.Directors.SecondName} " +
-                        $"{CurrentPartner.Directors.FirstName}" +
+                        $"{CurrentPartner.Directors.FirstName} " +
                         $"{CurrentPartner.Directors.LastName}";
                     PhoneTB.Text = CurrentPartner.Phone;
                     EmailTB.Text = CurrentPartner.Mail;
@@ -98,7 +96,7 @@ namespace MasterFloorApp.Pages
                 if (string.IsNullOrEmpty(AdressTB.Text)) { Errors.AppendLine("Заполните адрес!"); }
                 else
                 {
-                    if (AdressTB.Text.Split(',').Length < 5 || AdressTB.Text.Split(',').Length > 5)
+                    if (AdressTB.Text.Split(',').Length != 5)
                     {
                         Errors.AppendLine("Данные адреса заполнены неверно! (Индекс, Регион, Город, Улица, Номер улицы)");
                     }
@@ -106,7 +104,7 @@ namespace MasterFloorApp.Pages
                 if (string.IsNullOrEmpty(FIOTB.Text)) { Errors.AppendLine("Заполните ФИО директора!"); }
                 else
                 {
-                    if (AdressTB.Text.Split(' ').Length < 3 || AdressTB.Text.Split(' ').Length > 3)
+                    if (FIOTB.Text.Split(' ').Length != 3)
                     {
                         Errors.AppendLine("Данные ФИО заполнены неверно! (Фамилия Имя Отчество)");
                     }
@@ -124,18 +122,121 @@ namespace MasterFloorApp.Pages
                 CurrentPartner.Phone = PhoneTB.Text;
                 CurrentPartner.Mail = EmailTB.Text;
                 var DirectorSplitted = FIOTB.Text.Split(' ');
-                var Directors = Context.Directors.Where(i => i.SecondName == DirectorSplitted[0] 
-                && i.FirstName == DirectorSplitted[1] 
-                && i.LastName == DirectorSplitted[2]);
+                var TempSecondName = DirectorSplitted[0];
+                var TempFirstName = DirectorSplitted[1];
+                var TempLastName = DirectorSplitted[2];
+                var Directors = Context.Directors.Where(i => i.SecondName == TempSecondName
+                && i.FirstName == TempFirstName
+                && i.LastName == TempLastName);
                 if (Directors.FirstOrDefault() == null)
                 {
-                    var NewDirector = new Model.Directors() { SecondName = DirectorSplitted[0], 
-                        FirstName = DirectorSplitted[1], 
-                        LastName = DirectorSplitted[2] };
+                    var NewDirector = new Model.Directors()
+                    {
+                        SecondName = DirectorSplitted[0],
+                        FirstName = DirectorSplitted[1],
+                        LastName = DirectorSplitted[2]
+                    };
+                    Context.Directors.Add(NewDirector);
+                    Context.SaveChanges();
+                    CurrentPartner.DirectorId = NewDirector.Id;
                 }
+                else
+                {
+                    CurrentPartner.DirectorId = Directors.First().Id;
+                }
+                var AdressSplitted = AdressTB.Text.Split(',');
+                string TempPostCode = AdressSplitted[0].Trim();
+                string TempRegion = AdressSplitted[1].Trim();
+                string TempCity = AdressSplitted[2].Trim();
+                string TempStreet = AdressSplitted[3].Trim();
+                string TempHouseNumber = AdressSplitted[4].Trim();
+                var PostCodes = Context.PostCodes.Where(i => i.Name.Trim() == TempPostCode);
+                var Regions = Context.Regions.Where(i => i.Name.Trim() == TempRegion);
+                var Cities = Context.Cities.Where(i => i.Name.Trim() == TempCity);
+                var Streets = Context.Streets.Where(i => i.Name.Trim() == TempStreet);
+                if (PostCodes.FirstOrDefault() != null
+                    && Regions.FirstOrDefault() != null
+                    && Cities.FirstOrDefault() != null
+                    && Streets.FirstOrDefault() != null)
+                {
+                    var Adresses = Context.Adresses.Where(i => i.PostCodeId == PostCodes.FirstOrDefault().Id
+                    && i.RegionId == Regions.FirstOrDefault().Id
+                    && i.CityId == Cities.FirstOrDefault().Id
+                    && i.StreetId == Streets.FirstOrDefault().Id
+                    && i.HouseNumber == TempHouseNumber).FirstOrDefault();
+                    if (Adresses != null)
+                    {
+                        CurrentPartner.AdressId = Adresses.Id;
+                    };
+                }
+                else
+                {
+                    var NewAdress = new Model.Adresses();
+                    if (PostCodes.FirstOrDefault() == null)
+                    {
+                        var NewPostCode = new Model.PostCodes() { Name = TempPostCode };
+                        Context.PostCodes.Add(NewPostCode);
+                        Context.SaveChanges();
+                        NewAdress.PostCodeId = NewPostCode.Id;
+                    }
+                    else
+                    {
+                        NewAdress.PostCodeId = PostCodes.First().Id;
+                    }
+                    if (Regions.FirstOrDefault() == null)
+                    {
+                        var NewRegion = new Model.Regions() { Name = TempRegion };
+                        Context.Regions.Add(NewRegion);
+                        Context.SaveChanges();
+                        NewAdress.RegionId = NewRegion.Id;
+                    }
+                    else
+                    {
+                        NewAdress.RegionId = Regions.First().Id;
+                    }
+                    if (Cities.FirstOrDefault() == null)
+                    {
+                        var NewCity = new Model.Cities() { Name = TempCity };
+                        Context.Cities.Add(NewCity);
+                        Context.SaveChanges();
+                        NewAdress.CityId = NewCity.Id;
+                    }
+                    else
+                    {
+                        NewAdress.CityId = Cities.First().Id;
+                    }
+                    if (Streets.FirstOrDefault() == null)
+                    {
+                        var NewStreet = new Model.Streets() { Name = TempStreet };
+                        Context.Streets.Add(NewStreet);
+                        Context.SaveChanges();
+                        NewAdress.StreetId = NewStreet.Id;
+                    }
+                    else
+                    {
+                        NewAdress.StreetId = Streets.First().Id;
+                    }
+                    NewAdress.HouseNumber = TempHouseNumber;
+                    Context.Adresses.Add(NewAdress);
+                    Context.SaveChanges();
+                    CurrentPartner.AdressId = NewAdress.Id;
+                }
+                if (IsAdding)
+                {
+                    Context.Partners.Add(CurrentPartner);
+                    Context.SaveChanges();
+                    MessageBox.Show("Пользователь успешно добавлен!", "Уведомление!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    Context.SaveChanges();
+                    MessageBox.Show("Пользователь успешно обновлен!", "Уведомление!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                Utils.Navigation.CurrentFrame.Navigate(new Pages.PartnerList());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
             }
         }
     }
